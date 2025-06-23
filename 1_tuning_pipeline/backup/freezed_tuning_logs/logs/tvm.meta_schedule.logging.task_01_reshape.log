@@ -1,0 +1,378 @@
+2025-05-28 19:21:44 [INFO] [task_scheduler.cc:160] Initializing Task #1: "reshape"
+2025-05-28 19:21:44 [INFO] [task_scheduler.cc:35] 
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+
+@I.ir_module
+class Module:
+    @T.prim_func
+    def main(lv86: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(512)), "float32")):
+        T.func_attr({"op_pattern": 2, "tir.noalias": T.bool(True)})
+        # with T.block("root"):
+        for ax0, ax1 in T.grid(T.int64(1), T.int64(512)):
+            with T.block("T_reshape"):
+                v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
+                T.reads(lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)])
+                T.writes(T_reshape[v_ax0, v_ax1])
+                T_reshape[v_ax0, v_ax1] = lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)]
+2025-05-28 19:21:44 [INFO] [task_scheduler.cc:164] Total 1 design space(s) generated
+2025-05-28 19:21:44 [INFO] [task_scheduler.cc:170] Design space #0:
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+
+@I.ir_module
+class Module:
+    @T.prim_func
+    def main(lv86: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(512)), "float32")):
+        T.func_attr({"op_pattern": 2, "tir.noalias": T.bool(True)})
+        # with T.block("root"):
+        for ax0_ax1_fused_0 in T.thread_binding(T.int64(4), thread="blockIdx.x"):
+            for ax0_ax1_fused_1 in T.thread_binding(T.int64(128), thread="threadIdx.x"):
+                with T.block("T_reshape"):
+                    v_ax0 = T.axis.spatial(T.int64(1), T.int64(0))
+                    v_ax1 = T.axis.spatial(T.int64(512), ax0_ax1_fused_0 * T.int64(128) + ax0_ax1_fused_1)
+                    T.reads(lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)])
+                    T.writes(T_reshape[v_ax0, v_ax1])
+                    T_reshape[v_ax0, v_ax1] = lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)]
+b0 = sch.get_block(name="T_reshape", func_name="main")
+l1, l2 = sch.get_loops(block=b0)
+l3 = sch.fuse(l1, l2, preserve_unit_iters=True)
+v4 = sch.sample_categorical(candidates=[32, 64, 128, 256, 512], probs=[0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001], decision=2)
+l5, l6 = sch.split(loop=l3, factors=[None, v4], preserve_unit_iters=True, disable_predication=False)
+sch.bind(loop=l5, thread_axis="blockIdx.x")
+sch.bind(loop=l6, thread_axis="threadIdx.x")
+2025-05-28 19:22:31 [INFO] [evolutionary_search.cc:713] Generating candidates......
+2025-05-28 19:22:31 [INFO] [evolutionary_search.cc:715] Picked top 0 candidate(s) from database
+2025-05-28 19:22:31 [INFO] [evolutionary_search.cc:533] Sample-Init-Population summary:
+Postproc #0 [meta_schedule.DisallowDynamicLoop(0x120e2e08)]: 0 failure(s)
+Postproc #1 [meta_schedule.RewriteCooperativeFetch(0x124d7e38)]: 0 failure(s)
+Postproc #2 [meta_schedule.RewriteUnboundBlock(0x1229c3d8)]: 0 failure(s)
+Postproc #3 [meta_schedule.RewriteParallelVectorizeUnroll(0x127dbb38)]: 0 failure(s)
+Postproc #4 [meta_schedule.RewriteReductionBlock(0x12123048)]: 0 failure(s)
+Postproc #5 [meta_schedule.VerifyGPUCode(0x129500c8)]: 0 failure(s)
+Postproc #6 [meta_schedule.RewriteTensorize(0x1229bf68)]: 0 failure(s)
+2025-05-28 19:22:31 [INFO] [evolutionary_search.cc:723] Sampled 512 candidate(s)
+2025-05-28 19:22:31 [INFO] [evolutionary_search.cc:621] Evolve iter #0 done. Summary:
+Postproc #0 [meta_schedule.DisallowDynamicLoop(0x120e2e08)]: 0 failure(s)
+Postproc #1 [meta_schedule.RewriteCooperativeFetch(0x124d7e38)]: 0 failure(s)
+Postproc #2 [meta_schedule.RewriteUnboundBlock(0x1229c3d8)]: 0 failure(s)
+Postproc #3 [meta_schedule.RewriteParallelVectorizeUnroll(0x127dbb38)]: 0 failure(s)
+Postproc #4 [meta_schedule.RewriteReductionBlock(0x12123048)]: 0 failure(s)
+Postproc #5 [meta_schedule.VerifyGPUCode(0x129500c8)]: 0 failure(s)
+Postproc #6 [meta_schedule.RewriteTensorize(0x1229bf68)]: 0 failure(s)
+2025-05-28 19:22:32 [INFO] [evolutionary_search.cc:621] Evolve iter #1 done. Summary:
+Postproc #0 [meta_schedule.DisallowDynamicLoop(0x120e2e08)]: 0 failure(s)
+Postproc #1 [meta_schedule.RewriteCooperativeFetch(0x124d7e38)]: 0 failure(s)
+Postproc #2 [meta_schedule.RewriteUnboundBlock(0x1229c3d8)]: 0 failure(s)
+Postproc #3 [meta_schedule.RewriteParallelVectorizeUnroll(0x127dbb38)]: 0 failure(s)
+Postproc #4 [meta_schedule.RewriteReductionBlock(0x12123048)]: 0 failure(s)
+Postproc #5 [meta_schedule.VerifyGPUCode(0x129500c8)]: 0 failure(s)
+Postproc #6 [meta_schedule.RewriteTensorize(0x1229bf68)]: 0 failure(s)
+2025-05-28 19:22:32 [INFO] [evolutionary_search.cc:621] Evolve iter #2 done. Summary:
+Postproc #0 [meta_schedule.DisallowDynamicLoop(0x120e2e08)]: 0 failure(s)
+Postproc #1 [meta_schedule.RewriteCooperativeFetch(0x124d7e38)]: 0 failure(s)
+Postproc #2 [meta_schedule.RewriteUnboundBlock(0x1229c3d8)]: 0 failure(s)
+Postproc #3 [meta_schedule.RewriteParallelVectorizeUnroll(0x127dbb38)]: 0 failure(s)
+Postproc #4 [meta_schedule.RewriteReductionBlock(0x12123048)]: 0 failure(s)
+Postproc #5 [meta_schedule.VerifyGPUCode(0x129500c8)]: 0 failure(s)
+Postproc #6 [meta_schedule.RewriteTensorize(0x1229bf68)]: 0 failure(s)
+2025-05-28 19:22:32 [INFO] [evolutionary_search.cc:621] Evolve iter #3 done. Summary:
+Postproc #0 [meta_schedule.DisallowDynamicLoop(0x120e2e08)]: 0 failure(s)
+Postproc #1 [meta_schedule.RewriteCooperativeFetch(0x124d7e38)]: 0 failure(s)
+Postproc #2 [meta_schedule.RewriteUnboundBlock(0x1229c3d8)]: 0 failure(s)
+Postproc #3 [meta_schedule.RewriteParallelVectorizeUnroll(0x127dbb38)]: 0 failure(s)
+Postproc #4 [meta_schedule.RewriteReductionBlock(0x12123048)]: 0 failure(s)
+Postproc #5 [meta_schedule.VerifyGPUCode(0x129500c8)]: 0 failure(s)
+Postproc #6 [meta_schedule.RewriteTensorize(0x1229bf68)]: 0 failure(s)
+2025-05-28 19:22:32 [INFO] [evolutionary_search.cc:649] Scores of the best 5 candidates:
+[1 : 5]:	0.7886  0.6808  0.3683  0.3026  0.1239
+2025-05-28 19:22:32 [INFO] [evolutionary_search.cc:727] Got 5 candidate(s) with evolutionary search
+2025-05-28 19:22:32 [INFO] [evolutionary_search.cc:730] Sending 5 candidates(s) for measurement
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:121] [Task #1: reshape] Trial #1: Error in running:
+LocalRunner: An exception occurred
+Traceback (most recent call last):
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/exec/popen_worker.py", line 87, in main
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 152, in _worker_func
+    repeated_args: List[T_ARGUMENT_LIST] = f_alloc_argument(
+                                           ^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 360, in default_alloc_argument
+    return alloc_argument_common(f_random_fill, device, args_info, alloc_repeat)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 74, in alloc_argument_common
+    arg: Any = dispatcher.get(arg_type, None)(*arg_info)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 56, in alloc_tensor
+    arg = ndarray.empty(shape=shape, dtype=dtype, device=device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/runtime/ndarray.py", line 444, in empty
+    arr = _ffi_api.TVMArrayAllocWithScope(shape, dtype, device, mem_scope)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 339, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 284, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./base.pxi", line 185, in tvm._ffi._cy3.core.CHECK_CALL
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/_ffi/base.py", line 468, in raise_last_ffi_error
+    raise py_err
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc", line 241, in tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+    ->AllocDataSpace(ret->device, shape.size(), shape.data(), ret->dtype, mem_scope);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144, in tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+    CUDA_CALL(cudaMemGetInfo(&free_mem, &total_mem));
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tvm.error.InternalError: Traceback (most recent call last):
+  1: tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc:241
+  0: tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc:144
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144
+InternalError: Check failed: (e == cudaSuccess || e == cudaErrorCudartUnloading) is false: CUDA: misaligned address
+
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+
+@I.ir_module
+class Module:
+    @T.prim_func
+    def main(lv86: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(512)), "float32")):
+        T.func_attr({"op_pattern": 2, "tir.noalias": T.bool(True)})
+        # with T.block("root"):
+        for ax0_ax1_fused_0 in T.thread_binding(T.int64(4), thread="blockIdx.x"):
+            for ax0_ax1_fused_1 in T.thread_binding(T.int64(128), thread="threadIdx.x"):
+                with T.block("T_reshape"):
+                    v_ax0 = T.axis.spatial(T.int64(1), T.int64(0))
+                    v_ax1 = T.axis.spatial(T.int64(512), ax0_ax1_fused_0 * T.int64(128) + ax0_ax1_fused_1)
+                    T.reads(lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)])
+                    T.writes(T_reshape[v_ax0, v_ax1])
+                    T_reshape[v_ax0, v_ax1] = lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)]
+b0 = sch.get_block(name="T_reshape", func_name="main")
+l1, l2 = sch.get_loops(block=b0)
+l3 = sch.fuse(l1, l2, preserve_unit_iters=True)
+v4 = sch.sample_categorical(candidates=[32, 64, 128, 256, 512], probs=[0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001], decision=2)
+l5, l6 = sch.split(loop=l3, factors=[None, v4], preserve_unit_iters=True, disable_predication=False)
+sch.bind(loop=l5, thread_axis="blockIdx.x")
+sch.bind(loop=l6, thread_axis="threadIdx.x")
+sch.enter_postproc()
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:121] [Task #1: reshape] Trial #2: Error in running:
+LocalRunner: An exception occurred
+Traceback (most recent call last):
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/exec/popen_worker.py", line 87, in main
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 152, in _worker_func
+    repeated_args: List[T_ARGUMENT_LIST] = f_alloc_argument(
+                                           ^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 360, in default_alloc_argument
+    return alloc_argument_common(f_random_fill, device, args_info, alloc_repeat)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 74, in alloc_argument_common
+    arg: Any = dispatcher.get(arg_type, None)(*arg_info)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 56, in alloc_tensor
+    arg = ndarray.empty(shape=shape, dtype=dtype, device=device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/runtime/ndarray.py", line 444, in empty
+    arr = _ffi_api.TVMArrayAllocWithScope(shape, dtype, device, mem_scope)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 339, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 284, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./base.pxi", line 185, in tvm._ffi._cy3.core.CHECK_CALL
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/_ffi/base.py", line 468, in raise_last_ffi_error
+    raise py_err
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc", line 241, in tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+    ->AllocDataSpace(ret->device, shape.size(), shape.data(), ret->dtype, mem_scope);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144, in tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+    CUDA_CALL(cudaMemGetInfo(&free_mem, &total_mem));
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tvm.error.InternalError: Traceback (most recent call last):
+  1: tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc:241
+  0: tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc:144
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144
+InternalError: Check failed: (e == cudaSuccess || e == cudaErrorCudartUnloading) is false: CUDA: misaligned address
+
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+
+@I.ir_module
+class Module:
+    @T.prim_func
+    def main(lv86: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(512)), "float32")):
+        T.func_attr({"op_pattern": 2, "tir.noalias": T.bool(True)})
+        # with T.block("root"):
+        for ax0_ax1_fused_0 in T.thread_binding(T.int64(2), thread="blockIdx.x"):
+            for ax0_ax1_fused_1 in T.thread_binding(T.int64(256), thread="threadIdx.x"):
+                with T.block("T_reshape"):
+                    v_ax0 = T.axis.spatial(T.int64(1), T.int64(0))
+                    v_ax1 = T.axis.spatial(T.int64(512), ax0_ax1_fused_0 * T.int64(256) + ax0_ax1_fused_1)
+                    T.reads(lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)])
+                    T.writes(T_reshape[v_ax0, v_ax1])
+                    T_reshape[v_ax0, v_ax1] = lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)]
+b0 = sch.get_block(name="T_reshape", func_name="main")
+l1, l2 = sch.get_loops(block=b0)
+l3 = sch.fuse(l1, l2, preserve_unit_iters=True)
+v4 = sch.sample_categorical(candidates=[32, 64, 128, 256, 512], probs=[0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001], decision=3)
+l5, l6 = sch.split(loop=l3, factors=[None, v4], preserve_unit_iters=True, disable_predication=False)
+sch.bind(loop=l5, thread_axis="blockIdx.x")
+sch.bind(loop=l6, thread_axis="threadIdx.x")
+sch.enter_postproc()
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:121] [Task #1: reshape] Trial #3: Error in running:
+LocalRunner: An exception occurred
+Traceback (most recent call last):
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/exec/popen_worker.py", line 87, in main
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 152, in _worker_func
+    repeated_args: List[T_ARGUMENT_LIST] = f_alloc_argument(
+                                           ^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 360, in default_alloc_argument
+    return alloc_argument_common(f_random_fill, device, args_info, alloc_repeat)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 74, in alloc_argument_common
+    arg: Any = dispatcher.get(arg_type, None)(*arg_info)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 56, in alloc_tensor
+    arg = ndarray.empty(shape=shape, dtype=dtype, device=device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/runtime/ndarray.py", line 444, in empty
+    arr = _ffi_api.TVMArrayAllocWithScope(shape, dtype, device, mem_scope)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 339, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 284, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./base.pxi", line 185, in tvm._ffi._cy3.core.CHECK_CALL
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/_ffi/base.py", line 468, in raise_last_ffi_error
+    raise py_err
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc", line 241, in tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+    ->AllocDataSpace(ret->device, shape.size(), shape.data(), ret->dtype, mem_scope);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144, in tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+    CUDA_CALL(cudaMemGetInfo(&free_mem, &total_mem));
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tvm.error.InternalError: Traceback (most recent call last):
+  1: tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc:241
+  0: tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc:144
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144
+InternalError: Check failed: (e == cudaSuccess || e == cudaErrorCudartUnloading) is false: CUDA: misaligned address
+
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+
+@I.ir_module
+class Module:
+    @T.prim_func
+    def main(lv86: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(512)), "float32")):
+        T.func_attr({"op_pattern": 2, "tir.noalias": T.bool(True)})
+        # with T.block("root"):
+        for ax0_ax1_fused_0 in T.thread_binding(T.int64(1), thread="blockIdx.x"):
+            for ax0_ax1_fused_1 in T.thread_binding(T.int64(512), thread="threadIdx.x"):
+                with T.block("T_reshape"):
+                    v_ax0 = T.axis.spatial(T.int64(1), T.int64(0))
+                    v_ax1 = T.axis.spatial(T.int64(512), ax0_ax1_fused_0 * T.int64(512) + ax0_ax1_fused_1)
+                    T.reads(lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)])
+                    T.writes(T_reshape[v_ax0, v_ax1])
+                    T_reshape[v_ax0, v_ax1] = lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)]
+b0 = sch.get_block(name="T_reshape", func_name="main")
+l1, l2 = sch.get_loops(block=b0)
+l3 = sch.fuse(l1, l2, preserve_unit_iters=True)
+v4 = sch.sample_categorical(candidates=[32, 64, 128, 256, 512], probs=[0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001], decision=4)
+l5, l6 = sch.split(loop=l3, factors=[None, v4], preserve_unit_iters=True, disable_predication=False)
+sch.bind(loop=l5, thread_axis="blockIdx.x")
+sch.bind(loop=l6, thread_axis="threadIdx.x")
+sch.enter_postproc()
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:121] [Task #1: reshape] Trial #4: Error in running:
+LocalRunner: An exception occurred
+Traceback (most recent call last):
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/exec/popen_worker.py", line 87, in main
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 152, in _worker_func
+    repeated_args: List[T_ARGUMENT_LIST] = f_alloc_argument(
+                                           ^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/local_runner.py", line 360, in default_alloc_argument
+    return alloc_argument_common(f_random_fill, device, args_info, alloc_repeat)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 74, in alloc_argument_common
+    arg: Any = dispatcher.get(arg_type, None)(*arg_info)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/meta_schedule/runner/utils.py", line 56, in alloc_tensor
+    arg = ndarray.empty(shape=shape, dtype=dtype, device=device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/runtime/ndarray.py", line 444, in empty
+    arr = _ffi_api.TVMArrayAllocWithScope(shape, dtype, device, mem_scope)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 339, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 284, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./base.pxi", line 185, in tvm._ffi._cy3.core.CHECK_CALL
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/python/tvm/_ffi/base.py", line 468, in raise_last_ffi_error
+    raise py_err
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc", line 241, in tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+    ->AllocDataSpace(ret->device, shape.size(), shape.data(), ret->dtype, mem_scope);
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144, in tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+    CUDA_CALL(cudaMemGetInfo(&free_mem, &total_mem));
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tvm.error.InternalError: Traceback (most recent call last):
+  1: tvm::runtime::NDArray::Empty(tvm::runtime::ShapeTuple, DLDataType, DLDevice, tvm::runtime::Optional<tvm::runtime::String>)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/ndarray.cc:241
+  0: tvm::runtime::CUDADeviceAPI::AllocDataSpace(DLDevice, unsigned long, unsigned long, DLDataType)
+        at /home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc:144
+  File "/home/hayeon/workspace/TVM/v0.20.0/tvm/src/runtime/cuda/cuda_device_api.cc", line 144
+InternalError: Check failed: (e == cudaSuccess || e == cudaErrorCudartUnloading) is false: CUDA: misaligned address
+
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+
+@I.ir_module
+class Module:
+    @T.prim_func
+    def main(lv86: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(512)), "float32")):
+        T.func_attr({"op_pattern": 2, "tir.noalias": T.bool(True)})
+        # with T.block("root"):
+        for ax0_ax1_fused_0 in T.thread_binding(T.int64(8), thread="blockIdx.x"):
+            for ax0_ax1_fused_1 in T.thread_binding(T.int64(64), thread="threadIdx.x"):
+                with T.block("T_reshape"):
+                    v_ax0 = T.axis.spatial(T.int64(1), T.int64(0))
+                    v_ax1 = T.axis.spatial(T.int64(512), ax0_ax1_fused_0 * T.int64(64) + ax0_ax1_fused_1)
+                    T.reads(lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)])
+                    T.writes(T_reshape[v_ax0, v_ax1])
+                    T_reshape[v_ax0, v_ax1] = lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)]
+b0 = sch.get_block(name="T_reshape", func_name="main")
+l1, l2 = sch.get_loops(block=b0)
+l3 = sch.fuse(l1, l2, preserve_unit_iters=True)
+v4 = sch.sample_categorical(candidates=[32, 64, 128, 256, 512], probs=[0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001], decision=1)
+l5, l6 = sch.split(loop=l3, factors=[None, v4], preserve_unit_iters=True, disable_predication=False)
+sch.bind(loop=l5, thread_axis="blockIdx.x")
+sch.bind(loop=l6, thread_axis="threadIdx.x")
+sch.enter_postproc()
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:121] [Task #1: reshape] Trial #5: Error in running:
+LocalRunner: An exception occurred
+Subprocess terminated
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+
+@I.ir_module
+class Module:
+    @T.prim_func
+    def main(lv86: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(512)), "float32")):
+        T.func_attr({"op_pattern": 2, "tir.noalias": T.bool(True)})
+        # with T.block("root"):
+        for ax0_ax1_fused_0 in T.thread_binding(T.int64(16), thread="blockIdx.x"):
+            for ax0_ax1_fused_1 in T.thread_binding(T.int64(32), thread="threadIdx.x"):
+                with T.block("T_reshape"):
+                    v_ax0 = T.axis.spatial(T.int64(1), T.int64(0))
+                    v_ax1 = T.axis.spatial(T.int64(512), ax0_ax1_fused_0 * T.int64(32) + ax0_ax1_fused_1)
+                    T.reads(lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)])
+                    T.writes(T_reshape[v_ax0, v_ax1])
+                    T_reshape[v_ax0, v_ax1] = lv86[T.int64(0), v_ax1 % T.int64(512), T.int64(0), T.int64(0)]
+b0 = sch.get_block(name="T_reshape", func_name="main")
+l1, l2 = sch.get_loops(block=b0)
+l3 = sch.fuse(l1, l2, preserve_unit_iters=True)
+v4 = sch.sample_categorical(candidates=[32, 64, 128, 256, 512], probs=[0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 0.20000000000000001], decision=0)
+l5, l6 = sch.split(loop=l3, factors=[None, v4], preserve_unit_iters=True, disable_predication=False)
+sch.bind(loop=l5, thread_axis="blockIdx.x")
+sch.bind(loop=l6, thread_axis="threadIdx.x")
+sch.enter_postproc()

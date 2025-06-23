@@ -1,0 +1,195 @@
+2025-05-28 19:21:38 [INFO] Logging directory: tuning_logs/logs
+2025-05-28 19:21:44 [INFO] LocalBuilder: max_workers = 16
+2025-05-28 19:21:44 [INFO] LocalRunner: max_workers = 1
+2025-05-28 19:21:44 [INFO] [task_scheduler.cc:159] Initializing Task #0: "fused_matmul_add13"
+2025-05-28 19:21:44 [INFO] [task_scheduler.cc:159] Initializing Task #1: "reshape"
+2025-05-28 19:21:45 [INFO] [task_scheduler.cc:159] Initializing Task #2: "fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu"
+2025-05-28 19:21:45 [INFO] [task_scheduler.cc:159] Initializing Task #3: "adaptive_avg_pool2d"
+2025-05-28 19:21:45 [INFO] [task_scheduler.cc:159] Initializing Task #4: "fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4"
+2025-05-28 19:21:45 [INFO] [task_scheduler.cc:159] Initializing Task #5: "fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_add12_relu4"
+2025-05-28 19:21:46 [INFO] [task_scheduler.cc:159] Initializing Task #6: "max_pool2d"
+2025-05-28 19:21:46 [INFO] [task_scheduler.cc:159] Initializing Task #7: "fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_add6_relu2"
+2025-05-28 19:21:46 [INFO] [task_scheduler.cc:159] Initializing Task #8: "fused_conv2d10_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11"
+2025-05-28 19:21:47 [INFO] [task_scheduler.cc:159] Initializing Task #9: "fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_add9_relu3"
+2025-05-28 19:21:47 [INFO] [task_scheduler.cc:159] Initializing Task #10: "transpose"
+2025-05-28 19:21:47 [INFO] [task_scheduler.cc:159] Initializing Task #11: "fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_relu1"
+2025-05-28 19:21:47 [INFO] [task_scheduler.cc:159] Initializing Task #12: "fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_add3_relu1"
+2025-05-28 19:21:48 [INFO] [task_scheduler.cc:159] Initializing Task #13: "fused_conv2d7_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8"
+2025-05-28 19:21:48 [INFO] [task_scheduler.cc:159] Initializing Task #14: "fused_conv2d2_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2"
+2025-05-28 19:21:49 [INFO] [task_scheduler.cc:159] Initializing Task #15: "fused_conv2d4_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5"
+2025-05-28 19:21:49 [INFO] [task_scheduler.cc:159] Initializing Task #16: "fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2"
+2025-05-28 19:21:49 [INFO] [task_scheduler.cc:159] Initializing Task #17: "fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4"
+2025-05-28 19:21:50 [INFO] [task_scheduler.cc:159] Initializing Task #18: "fused_conv2d5_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3"
+2025-05-28 19:21:50 [INFO] [task_scheduler.cc:159] Initializing Task #19: "fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3"
+2025-05-28 19:21:50 [INFO] [task_scheduler.cc:180] TaskScheduler picks Task #0: "fused_matmul_add13"
+2025-05-28 19:22:09 [INFO] [task_scheduler.cc:193] Sending 63 sample(s) to builder
+2025-05-28 19:22:12 [INFO] [task_scheduler.cc:195] Sending 63 sample(s) to runner
+2025-05-28 19:22:31 [DEBUG] XGB iter   0: tr-p-rmse: 0.559319	tr-a-peak@32: 1.000000	tr-rmse: 0.274568	tr-rmse: 0.274568
+2025-05-28 19:22:31 [DEBUG] XGB iter  25: tr-p-rmse: 0.177754	tr-a-peak@32: 0.968750	tr-rmse: 0.327810	tr-rmse: 0.327810
+2025-05-28 19:22:31 [DEBUG] XGB iter  50: tr-p-rmse: 0.177754	tr-a-peak@32: 0.968750	tr-rmse: 0.327810	tr-rmse: 0.327810
+2025-05-28 19:22:31 [DEBUG] XGB stopped. Best iteration: [5] tr-p-rmse:0.17674	tr-a-peak@32:0.96875	tr-rmse:0.32748	tr-rmse:0.32748 
+2025-05-28 19:22:31 [INFO] [task_scheduler.cc:237] [Updated] Task #0: "fused_matmul_add13"
+2025-05-28 19:22:31 [INFO] [task_scheduler.cc:320] 
+ ID |                                                                                  Name |      FLOP | Weight | Speed (GFLOPS) | Latency (us) | Weighted Latency (us) | Trials | Done 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0 |                                                                    fused_matmul_add13 |   1025000 |      1 |       139.0578 |       7.3710 |                7.3710 |     63 |      
+  1 |                                                                               reshape |         1 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  2 |               fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu | 240041984 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  3 |                                                                   adaptive_avg_pool2d |     25600 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  4 |       fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 115730944 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  5 | fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_add12_relu4 | 231361536 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  6 |                                                                            max_pool2d |   1806336 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  7 |   fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_add6_relu2 | 231813120 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  8 |            fused_conv2d10_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11 |  12945408 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  9 |   fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_add9_relu3 | 231512064 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 10 |                                                                             transpose |         1 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 11 |          fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_relu1 | 232214528 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 12 |     fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_add3_relu1 | 232415232 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 13 |              fused_conv2d7_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8 |  13045760 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 14 |        fused_conv2d2_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 116107264 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 15 |              fused_conv2d4_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5 |  13246464 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 16 |        fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 231712768 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 17 |       fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 231336448 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 18 |        fused_conv2d5_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 115856384 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 19 |        fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 231461888 |      1 |            N/A |          N/A |                   N/A |      0 |      
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total trials: 63
+Total latency (us): 7.37103
+
+2025-05-28 19:22:31 [INFO] [task_scheduler.cc:180] TaskScheduler picks Task #1: "reshape"
+2025-05-28 19:22:32 [INFO] [task_scheduler.cc:193] Sending 5 sample(s) to builder
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:195] Sending 5 sample(s) to runner
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:237] [Updated] Task #1: "reshape"
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:320] 
+ ID |                                                                                  Name |      FLOP | Weight | Speed (GFLOPS) | Latency (us) | Weighted Latency (us) | Trials | Done 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0 |                                                                    fused_matmul_add13 |   1025000 |      1 |       139.0578 |       7.3710 |                7.3710 |     63 |      
+  1 |                                                                               reshape |         1 |      1 |            N/A |          N/A |                   N/A |      5 |      
+  2 |               fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu | 240041984 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  3 |                                                                   adaptive_avg_pool2d |     25600 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  4 |       fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 115730944 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  5 | fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_add12_relu4 | 231361536 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  6 |                                                                            max_pool2d |   1806336 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  7 |   fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_add6_relu2 | 231813120 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  8 |            fused_conv2d10_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11 |  12945408 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  9 |   fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_add9_relu3 | 231512064 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 10 |                                                                             transpose |         1 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 11 |          fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_relu1 | 232214528 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 12 |     fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_add3_relu1 | 232415232 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 13 |              fused_conv2d7_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8 |  13045760 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 14 |        fused_conv2d2_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 116107264 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 15 |              fused_conv2d4_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5 |  13246464 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 16 |        fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 231712768 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 17 |       fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 231336448 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 18 |        fused_conv2d5_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 115856384 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 19 |        fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 231461888 |      1 |            N/A |          N/A |                   N/A |      0 |      
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total trials: 63
+Total latency (us): 7.37103
+
+2025-05-28 19:22:33 [INFO] [task_scheduler.cc:180] TaskScheduler picks Task #2: "fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu"
+2025-05-28 19:23:42 [INFO] [task_scheduler.cc:193] Sending 63 sample(s) to builder
+2025-05-28 19:24:21 [INFO] [task_scheduler.cc:195] Sending 63 sample(s) to runner
+2025-05-28 19:24:39 [DEBUG] XGB iter   0: tr-p-rmse: 0.740984	tr-a-peak@32: 0.843750	tr-rmse: 0.417455	tr-rmse: 0.417455
+2025-05-28 19:24:39 [DEBUG] XGB iter  25: tr-p-rmse: 0.510504	tr-a-peak@32: 0.750000	tr-rmse: 0.391472	tr-rmse: 0.391472
+2025-05-28 19:24:39 [DEBUG] XGB iter  50: tr-p-rmse: 0.510556	tr-a-peak@32: 0.750000	tr-rmse: 0.391461	tr-rmse: 0.391461
+2025-05-28 19:24:39 [DEBUG] XGB stopped. Best iteration: [17] tr-p-rmse:0.50809	tr-a-peak@32:0.75000	tr-rmse:0.39196	tr-rmse:0.39196 
+2025-05-28 19:24:39 [INFO] [task_scheduler.cc:237] [Updated] Task #2: "fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu"
+2025-05-28 19:24:39 [INFO] [task_scheduler.cc:320] 
+ ID |                                                                                  Name |      FLOP | Weight | Speed (GFLOPS) | Latency (us) | Weighted Latency (us) | Trials | Done 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0 |                                                                    fused_matmul_add13 |   1025000 |      1 |       139.0578 |       7.3710 |                7.3710 |     63 |      
+  1 |                                                                               reshape |         1 |      1 |            N/A |          N/A |                   N/A |      5 |      
+  2 |               fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu | 240041984 |      1 |      1552.5227 |     154.6142 |              154.6142 |     63 |      
+  3 |                                                                   adaptive_avg_pool2d |     25600 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  4 |       fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 115730944 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  5 | fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_add12_relu4 | 231361536 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  6 |                                                                            max_pool2d |   1806336 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  7 |   fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_add6_relu2 | 231813120 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  8 |            fused_conv2d10_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11 |  12945408 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  9 |   fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_add9_relu3 | 231512064 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 10 |                                                                             transpose |         1 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 11 |          fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_relu1 | 232214528 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 12 |     fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_add3_relu1 | 232415232 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 13 |              fused_conv2d7_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8 |  13045760 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 14 |        fused_conv2d2_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 116107264 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 15 |              fused_conv2d4_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5 |  13246464 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 16 |        fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 231712768 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 17 |       fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 231336448 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 18 |        fused_conv2d5_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 115856384 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 19 |        fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 231461888 |      1 |            N/A |          N/A |                   N/A |      0 |      
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total trials: 126
+Total latency (us): 161.985
+
+2025-05-28 19:24:39 [INFO] [task_scheduler.cc:180] TaskScheduler picks Task #3: "adaptive_avg_pool2d"
+2025-05-28 19:24:45 [INFO] [task_scheduler.cc:193] Sending 64 sample(s) to builder
+2025-05-28 19:24:48 [INFO] [task_scheduler.cc:195] Sending 64 sample(s) to runner
+2025-05-28 19:25:01 [DEBUG] XGB iter   0: tr-p-rmse: 0.704025	tr-a-peak@32: 1.000000	tr-rmse: 0.309384	tr-rmse: 0.309384
+2025-05-28 19:25:01 [DEBUG] XGB iter  25: tr-p-rmse: 0.462769	tr-a-peak@32: 1.000000	tr-rmse: 0.345516	tr-rmse: 0.345516
+2025-05-28 19:25:01 [DEBUG] XGB iter  50: tr-p-rmse: 0.462770	tr-a-peak@32: 1.000000	tr-rmse: 0.345516	tr-rmse: 0.345516
+2025-05-28 19:25:01 [DEBUG] XGB stopped. Best iteration: [8] tr-p-rmse:0.45839	tr-a-peak@32:1.00000	tr-rmse:0.34563	tr-rmse:0.34563 
+2025-05-28 19:25:01 [INFO] [task_scheduler.cc:237] [Updated] Task #3: "adaptive_avg_pool2d"
+2025-05-28 19:25:01 [INFO] [task_scheduler.cc:320] 
+ ID |                                                                                  Name |      FLOP | Weight | Speed (GFLOPS) | Latency (us) | Weighted Latency (us) | Trials | Done 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0 |                                                                    fused_matmul_add13 |   1025000 |      1 |       139.0578 |       7.3710 |                7.3710 |     63 |      
+  1 |                                                                               reshape |         1 |      1 |            N/A |          N/A |                   N/A |      5 |      
+  2 |               fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu | 240041984 |      1 |      1552.5227 |     154.6142 |              154.6142 |     63 |      
+  3 |                                                                   adaptive_avg_pool2d |     25600 |      1 |        11.8430 |       2.1616 |                2.1616 |     64 |      
+  4 |       fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 115730944 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  5 | fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_add12_relu4 | 231361536 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  6 |                                                                            max_pool2d |   1806336 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  7 |   fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_add6_relu2 | 231813120 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  8 |            fused_conv2d10_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11 |  12945408 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  9 |   fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_add9_relu3 | 231512064 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 10 |                                                                             transpose |         1 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 11 |          fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_relu1 | 232214528 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 12 |     fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_add3_relu1 | 232415232 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 13 |              fused_conv2d7_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8 |  13045760 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 14 |        fused_conv2d2_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 116107264 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 15 |              fused_conv2d4_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5 |  13246464 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 16 |        fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 231712768 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 17 |       fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 231336448 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 18 |        fused_conv2d5_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 115856384 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 19 |        fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 231461888 |      1 |            N/A |          N/A |                   N/A |      0 |      
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total trials: 190
+Total latency (us): 164.147
+
+2025-05-28 19:25:01 [INFO] [task_scheduler.cc:180] TaskScheduler picks Task #4: "fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4"
+2025-05-28 19:26:08 [INFO] [task_scheduler.cc:193] Sending 64 sample(s) to builder
+2025-05-28 19:26:20 [INFO] [task_scheduler.cc:195] Sending 64 sample(s) to runner
+2025-05-28 19:26:39 [DEBUG] XGB iter   0: tr-p-rmse: 0.586839	tr-a-peak@32: 1.000000	tr-rmse: 0.415513	tr-rmse: 0.415513
+2025-05-28 19:26:39 [DEBUG] XGB iter  25: tr-p-rmse: 0.380203	tr-a-peak@32: 1.000000	tr-rmse: 0.425455	tr-rmse: 0.425455
+2025-05-28 19:26:39 [DEBUG] XGB iter  50: tr-p-rmse: 0.380203	tr-a-peak@32: 1.000000	tr-rmse: 0.425455	tr-rmse: 0.425455
+2025-05-28 19:26:39 [DEBUG] XGB stopped. Best iteration: [12] tr-p-rmse:0.37958	tr-a-peak@32:1.00000	tr-rmse:0.42559	tr-rmse:0.42559 
+2025-05-28 19:26:39 [INFO] [task_scheduler.cc:237] [Updated] Task #4: "fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4"
+2025-05-28 19:26:39 [INFO] [task_scheduler.cc:320] 
+ ID |                                                                                  Name |      FLOP | Weight | Speed (GFLOPS) | Latency (us) | Weighted Latency (us) | Trials | Done 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  0 |                                                                    fused_matmul_add13 |   1025000 |      1 |       139.0578 |       7.3710 |                7.3710 |     63 |      
+  1 |                                                                               reshape |         1 |      1 |            N/A |          N/A |                   N/A |      5 |      
+  2 |               fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_relu | 240041984 |      1 |      1552.5227 |     154.6142 |              154.6142 |     63 |      
+  3 |                                                                   adaptive_avg_pool2d |     25600 |      1 |        11.8430 |       2.1616 |                2.1616 |     64 |      
+  4 |       fused_conv2d8_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 115730944 |      1 |      1050.2135 |     110.1975 |              110.1975 |     64 |      
+  5 | fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_add12_relu4 | 231361536 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  6 |                                                                            max_pool2d |   1806336 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  7 |   fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_add6_relu2 | 231813120 |      2 |            N/A |          N/A |                   N/A |      0 |      
+  8 |            fused_conv2d10_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11 |  12945408 |      1 |            N/A |          N/A |                   N/A |      0 |      
+  9 |   fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_add9_relu3 | 231512064 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 10 |                                                                             transpose |         1 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 11 |          fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_relu1 | 232214528 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 12 |     fused_conv2d1_subtract1_divide1_expand_dims_multiply1_expand_dims_add2_add3_relu1 | 232415232 |      2 |            N/A |          N/A |                   N/A |      0 |      
+ 13 |              fused_conv2d7_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8 |  13045760 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 14 |        fused_conv2d2_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 116107264 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 15 |              fused_conv2d4_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5 |  13246464 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 16 |        fused_conv2d3_subtract2_divide2_expand_dims1_multiply2_expand_dims1_add5_relu2 | 231712768 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 17 |       fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_relu4 | 231336448 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 18 |        fused_conv2d5_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 115856384 |      1 |            N/A |          N/A |                   N/A |      0 |      
+ 19 |        fused_conv2d6_subtract3_divide3_expand_dims2_multiply3_expand_dims2_add8_relu3 | 231461888 |      1 |            N/A |          N/A |                   N/A |      0 |      
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total trials: 254
+Total latency (us): 274.344
+
+2025-05-28 19:26:39 [INFO] [task_scheduler.cc:180] TaskScheduler picks Task #5: "fused_conv2d9_subtract4_divide4_expand_dims3_multiply4_expand_dims3_add11_add12_relu4"

@@ -1,0 +1,4 @@
+*.png
+*.jpg
+*/imagenet_classes.txt
+*/segments_info
