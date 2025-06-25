@@ -122,7 +122,6 @@ if __name__ == "__main__":
     params = load_params("resnet18.bin")
     vm = relax.VirtualMachine(ex, dev)
     
-    ####################################################################
     print("TEST1: E2E Inference")
 
     for image_path in image_path_list:
@@ -135,35 +134,4 @@ if __name__ == "__main__":
         # Default inference
         output = vm["main"](gpu_input, *gpu_params)
         print(get_label(output))
-    ####################################################################
-    # print("TEST2: Get model skeleton")
-    
-    # segment_runner = relax.SegmentRunner(vm)
-    
-    # skeleton = segment_runner.get_skeleton()
-    # with open("segments_info", 'w', encoding='utf-8') as f:
-    #     f.write(skeleton)
-    ####################################################################
-    # print("TEST3: Segment runner")
-    
-    # segment_runner = relax.SegmentRunner(vm)
-    # with open("segments_info", "r") as f:
-    #     segments_info = f.read()    
-    # segments_length = segment_runner.load(segments_info)
-    
-    # for image_path in image_path_list:
-    #     orig_image, image_tensor = preprocess_image(image_path)
-    #     labels = get_imagenet_labels()
-
-    #     gpu_input = tvm.nd.array(image_tensor.astype("float32"), dev)
-    #     gpu_params = [tvm.nd.array(p, dev) for p in params["main"]]
-        
-    #     segment_runner.set_input(gpu_input, *gpu_params)
-    #     for i in range(segments_length):
-    #         segment_runner.run(i)
-
-    #     output = segment_runner.get_output()
-    #     print(get_label(output))
-    ####################################################################
-            
     
