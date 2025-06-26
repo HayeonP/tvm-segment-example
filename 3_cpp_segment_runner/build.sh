@@ -5,4 +5,5 @@ g++ -std=c++17 \
     -I/home/hayeon/workspace/tvm/tvm20/tvm-segment/3rdparty/dlpack/include \
     -L/home/hayeon/workspace/tvm/tvm20/tvm-segment/build \
     -ltvm_allvisible \
+    -lcurl \
     -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs

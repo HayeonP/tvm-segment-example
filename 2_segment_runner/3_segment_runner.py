@@ -95,10 +95,11 @@ def get_imagenet_labels():
         return [line.strip() for line in f.readlines()]
 
 def get_label(output):
-    output_nd = output[0] if isinstance(output, tvm.ir.Array) else output
-    prediction = np.argmax(output_nd.numpy())
+    prediction = np.argmax(output.numpy())
     labels = get_imagenet_labels()
-    return labels[prediction]
+    ret =  labels[prediction]
+    
+    return ret
 
 if __name__ == "__main__":
     # 샘플 이미지 로드    
@@ -119,29 +120,35 @@ if __name__ == "__main__":
     
     dev = tvm.device("cuda", 0)
     ex = tvm.runtime.load_module("resnet18.so")
+    
     params = load_params("resnet18.bin")
     vm = relax.VirtualMachine(ex, dev)
     
-    print("TEST3: Segment runner")
+    print("TEST4: Reuse params")
     
     segment_runner = relax.SegmentRunner(vm)
     with open("segments_info", "r") as f:
         segments_info = f.read()    
     segments_length = segment_runner.load(segments_info)
     
+    # Set params at the first
+    gpu_params = [tvm.nd.array(p, dev) for p in params["main"]]
+    
+    labels = get_imagenet_labels()
     for image_path in image_path_list:
         orig_image, image_tensor = preprocess_image(image_path)
-        labels = get_imagenet_labels()
 
+        input = orig_image
         gpu_input = tvm.nd.array(image_tensor.astype("float32"), dev)
-        gpu_params = [tvm.nd.array(p, dev) for p in params["main"]]
         
         segment_runner.set_input(gpu_input, *gpu_params)
+
         for i in range(segments_length):
             print("Run Segment", i)
             segment_runner.run(i)
 
-        output = segment_runner.get_output()
+        gpu_output = segment_runner.get_output()
+        output = gpu_output[0].copyto(tvm.cpu(0))
+        
         print(get_label(output))
-            
     
