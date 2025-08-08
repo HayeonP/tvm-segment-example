@@ -1,0 +1,12 @@
+g++ -std=c++17 \
+    -o main main.cpp \
+    -I/home/rubis/workspace/tvm-segment-20/include \
+    -I/home/rubis/workspace/tvm-segment-20/3rdparty/dmlc-core/include \
+    -I/home/rubis/workspace/tvm-segment-20/3rdparty/dlpack/include \
+    -I/home/rubis/miniconda3/envs/tvm20/include \
+    -I/home/rubis/miniconda3/envs/tvm20/include/opencv4 \
+    -L/home/rubis/miniconda3/envs/tvm20/lib \
+    -L/home/rubis/workspace/tvm-segment-20/build \
+    -ltvm_allvisible \
+    -lcurl \
+    -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs
