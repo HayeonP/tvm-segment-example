@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
     image_path_list = []
     for source in image_sources:
-        image_path = source.split('/')[-1]
+        image_path = "../data/" + source.split('/')[-1]
         if not os.path.exists(image_path):
             import urllib.request
             urllib.request.urlretrieve(
@@ -172,6 +172,7 @@ if __name__ == "__main__":
         start = time.time()
         for i in range(segments_length):                        
             segment_runner.execute(i)
+            dev.sync()  # force synchronization
         end = time.time()    
         
         inference_time_list.append(end-start)

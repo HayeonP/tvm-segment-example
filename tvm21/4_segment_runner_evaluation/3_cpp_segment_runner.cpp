@@ -153,6 +153,8 @@ int main() {
 
     // dev = tvm.device("cuda", 0)
     tvm::Device dev{kDLCUDA, 0}; // OK
+    // get device api for synchronization
+    tvm::runtime::DeviceAPI* device_api = tvm::runtime::DeviceAPI::Get(dev);
     
     // ex = tvm.runtime.load_module("resnet18.so")   
     std::string library_apth{"resnet18.so"};
@@ -211,15 +213,17 @@ int main() {
             auto set_input_with_params_start = std::chrono::high_resolution_clock::now();
             std::vector<tvm::runtime::NDArray> input_vec;
             input_vec.push_back(gpu_input);
-            segment_runner.SetInputWithParams(input_vec, params);
+            segment_runner.SetInputWithParams(input_vec, gpu_params);
             auto set_input_with_params_end = std::chrono::high_resolution_clock::now();
             set_input_with_params_time_list.push_back(set_input_with_params_end - set_input_with_params_start);
 
 
             // inference - Run segments            
             auto inference_start = std::chrono::high_resolution_clock::now();
+            TVMStreamHandle stream = device_api->GetCurrentStream(dev); // Get the current default stream for the device
             for(size_t i = 0; i < segments_length; i++){                
                 segment_runner.Execute(i);
+                device_api->StreamSync(dev, stream); // force synchronization
             }
             auto inference_end = std::chrono::high_resolution_clock::now();
             inference_time_list.push_back(inference_end - inference_start);
