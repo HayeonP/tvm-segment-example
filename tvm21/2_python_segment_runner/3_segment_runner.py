@@ -150,9 +150,6 @@ if __name__ == "__main__":
             segment_runner.execute(i)
 
         gpu_output = segment_runner.get_output()
-        print('====')
-        print("gpu output type:", type(gpu_output))
-        print("gpu output:", gpu_output)
         output = gpu_output[0].copyto(tvm.cpu(0))
         
         print(get_label(output))

@@ -1,0 +1,57 @@
+[DEBUG] clo impl.CallPacked
+[DEBUG] InvokeBytecode
+[DEBUG] instr dst: 18014398509481984
+[DEBUG] New closure - args: 2
+[DEBUG] pc = 18, execute: vm.builtin.check_tensor_info
+[DEBUG] pc = 19, execute: vm.builtin.check_tensor_info
+[DEBUG] pc = 20, execute: vm.builtin.match_shape
+[DEBUG] pc = 21, execute: vm.builtin.match_shape
+[DEBUG] pc = 22, execute: foo
+[DEBUG] clo impl.CallPacked
+[DEBUG] InvokeBytecode
+[DEBUG] instr dst: 2
+[DEBUG] New closure - args: 2
+[DEBUG] pc = 7, execute: vm.builtin.check_tensor_info
+[DEBUG] pc = 8, execute: vm.builtin.check_tensor_info
+[DEBUG] pc = 9, execute: vm.builtin.match_shape
+[DEBUG] pc = 10, execute: vm.builtin.match_shape
+[DEBUG] pc = 11, execute: bar
+[DEBUG] clo impl.CallPacked
+[DEBUG] InvokeBytecode
+[DEBUG] instr dst: 2
+[DEBUG] New closure - args: 1
+[DEBUG] pc = 0, execute: vm.builtin.check_tensor_info
+[DEBUG] pc = 1, execute: vm.builtin.match_shape
+[DEBUG] pc = 2, execute: vm.builtin.alloc_storage
+[DEBUG] save return value / frame length: 3 / instr dst: 1
+[DEBUG] pc = 3, execute: vm.builtin.alloc_tensor
+[DEBUG] save return value / frame length: 3 / instr dst: 2
+[DEBUG] pc = 4, execute: vm.builtin.null_value
+[DEBUG] save return value / frame length: 3 / instr dst: 1
+[DEBUG] pc = 5, execute: factorial_impl
+[DEBUG] pc = 6, return: factorial_impl
+[DEBUG] Save return value in RET / frame length: 3
+[DEBUG] save return value / frame length: 2 / instr dst: 2
+[DEBUG] pc = 12, execute: vm.builtin.alloc_storage
+[DEBUG] save return value / frame length: 2 / instr dst: 3
+[DEBUG] pc = 13, execute: vm.builtin.alloc_tensor
+[DEBUG] save return value / frame length: 2 / instr dst: 4
+[DEBUG] pc = 14, execute: vm.builtin.null_value
+[DEBUG] save return value / frame length: 2 / instr dst: 3
+[DEBUG] pc = 15, execute: add
+[DEBUG] pc = 16, execute: vm.builtin.null_value
+[DEBUG] save return value / frame length: 2 / instr dst: 2
+[DEBUG] pc = 17, return: vm.builtin.null_value
+[DEBUG] Save return value in RET / frame length: 2
+[DEBUG] save return value / frame length: 1 / instr dst: 2
+[DEBUG] pc = 23, execute: vm.builtin.alloc_storage
+[DEBUG] save return value / frame length: 1 / instr dst: 3
+[DEBUG] pc = 24, execute: vm.builtin.alloc_tensor
+[DEBUG] save return value / frame length: 1 / instr dst: 4
+[DEBUG] pc = 25, execute: vm.builtin.null_value
+[DEBUG] save return value / frame length: 1 / instr dst: 3
+[DEBUG] pc = 26, execute: multiply
+[DEBUG] pc = 27, execute: vm.builtin.null_value
+[DEBUG] save return value / frame length: 1 / instr dst: 2
+[DEBUG] pc = 28, return: vm.builtin.null_value
+factorial(3) * param = 40

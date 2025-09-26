@@ -1,0 +1,1411 @@
+{
+  "root": 1, 
+  "nodes": [
+    {
+      "type_key": ""
+    }, 
+    {
+      "type_key": "ir.IRModule", 
+      "attrs": {
+        "attrs": "219", 
+        "functions": "2", 
+        "global_infos": "221", 
+        "global_var_map_": "216", 
+        "source_map": "217"
+      }
+    }, 
+    {
+      "type_key": "ffi.Map", 
+      "data": [3, 19, 78, 96, 118, 140, 168, 190]
+    }, 
+    {
+      "type_key": "ir.GlobalVar", 
+      "attrs": {
+        "name_hint": "18", 
+        "span": "null", 
+        "struct_info_": "4"
+      }
+    }, 
+    {
+      "type_key": "relax.FuncStructInfo", 
+      "attrs": {
+        "derive_func": "null", 
+        "params": "5", 
+        "purity": "0", 
+        "ret": "16"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [6, 11]
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "7", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "8", 
+        "values": "9"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "9"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [10]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "12", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "13", 
+        "values": "14"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "14"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [15]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "relax.TupleStructInfo", 
+      "attrs": {"fields": "17"}
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "factorial_impl"
+    }, 
+    {
+      "type_key": "tir.PrimFunc", 
+      "attrs": {
+        "attrs": "20", 
+        "body": "30", 
+        "buffer_map": "77", 
+        "params": "23", 
+        "ret_type": "75", 
+        "span": "null", 
+        "struct_info_": "4"
+      }
+    }, 
+    {
+      "type_key": "ir.DictAttrs", 
+      "attrs": {"__dict__": "21"}
+    }, 
+    {
+      "type_key": "ffi.Map", 
+      "keys": [
+        "global_symbol", 
+        "tir.noalias"
+      ], 
+      "data": [18, 22]
+    }, 
+    {
+      "type_key": "bool", 
+      "attrs": {"v_int64": "1"}
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [24, 27]
+    }, 
+    {
+      "type_key": "tir.Var", 
+      "attrs": {
+        "dtype": "handle", 
+        "name": "25", 
+        "span": "null", 
+        "type_annotation": "26"
+      }
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "n_handle"
+    }, 
+    {
+      "type_key": "ir.PrimType", 
+      "attrs": {"dtype": "handle"}
+    }, 
+    {
+      "type_key": "tir.Var", 
+      "attrs": {
+        "dtype": "handle", 
+        "name": "28", 
+        "span": "null", 
+        "type_annotation": "29"
+      }
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "result_handle"
+    }, 
+    {
+      "type_key": "ir.PrimType", 
+      "attrs": {"dtype": "handle"}
+    }, 
+    {
+      "type_key": "tir.SeqStmt", 
+      "attrs": {
+        "seq": "31", 
+        "span": "null"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [32, 47]
+    }, 
+    {
+      "type_key": "tir.BufferStore", 
+      "attrs": {
+        "buffer": "33", 
+        "indices": "45", 
+        "predicate": "null", 
+        "span": "null", 
+        "value": "44"
+      }
+    }, 
+    {
+      "type_key": "tir.Buffer", 
+      "attrs": {
+        "axis_separators": "42", 
+        "buffer_type": "1", 
+        "data": "34", 
+        "data_alignment": "64", 
+        "dtype": "int32", 
+        "elem_offset": "43", 
+        "name": "35", 
+        "offset_factor": "1", 
+        "shape": "39", 
+        "span": "null", 
+        "strides": "41"
+      }
+    }, 
+    {
+      "type_key": "tir.Var", 
+      "attrs": {
+        "dtype": "handle", 
+        "name": "35", 
+        "span": "null", 
+        "type_annotation": "36"
+      }
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "result"
+    }, 
+    {
+      "type_key": "ir.PointerType", 
+      "attrs": {
+        "element_type": "37", 
+        "storage_scope": "38"
+      }
+    }, 
+    {
+      "type_key": "ir.PrimType", 
+      "attrs": {"dtype": "int32"}
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "global"
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [40]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "0"
+      }
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [46]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "0"
+      }
+    }, 
+    {
+      "type_key": "tir.For", 
+      "attrs": {
+        "annotations": "74", 
+        "body": "65", 
+        "extent": "52", 
+        "kind": "0", 
+        "loop_var": "48", 
+        "min": "51", 
+        "span": "null", 
+        "thread_binding": "null"
+      }
+    }, 
+    {
+      "type_key": "tir.Var", 
+      "attrs": {
+        "dtype": "int32", 
+        "name": "49", 
+        "span": "null", 
+        "type_annotation": "50"
+      }
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "i"
+    }, 
+    {
+      "type_key": "ir.PrimType", 
+      "attrs": {"dtype": "int32"}
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "0"
+      }
+    }, 
+    {
+      "type_key": "tir.BufferLoad", 
+      "attrs": {
+        "buffer": "53", 
+        "dtype": "int32", 
+        "indices": "63", 
+        "predicate": "null", 
+        "span": "null"
+      }
+    }, 
+    {
+      "type_key": "tir.Buffer", 
+      "attrs": {
+        "axis_separators": "61", 
+        "buffer_type": "1", 
+        "data": "54", 
+        "data_alignment": "64", 
+        "dtype": "int32", 
+        "elem_offset": "62", 
+        "name": "55", 
+        "offset_factor": "1", 
+        "shape": "58", 
+        "span": "null", 
+        "strides": "60"
+      }
+    }, 
+    {
+      "type_key": "tir.Var", 
+      "attrs": {
+        "dtype": "handle", 
+        "name": "55", 
+        "span": "null", 
+        "type_annotation": "56"
+      }
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "n"
+    }, 
+    {
+      "type_key": "ir.PointerType", 
+      "attrs": {
+        "element_type": "57", 
+        "storage_scope": "38"
+      }
+    }, 
+    {
+      "type_key": "ir.PrimType", 
+      "attrs": {"dtype": "int32"}
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [59]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "0"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [64]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "0"
+      }
+    }, 
+    {
+      "type_key": "tir.BufferStore", 
+      "attrs": {
+        "buffer": "33", 
+        "indices": "72", 
+        "predicate": "null", 
+        "span": "null", 
+        "value": "66"
+      }
+    }, 
+    {
+      "type_key": "tir.Mul", 
+      "attrs": {
+        "a": "67", 
+        "b": "70", 
+        "dtype": "int32", 
+        "span": "null"
+      }
+    }, 
+    {
+      "type_key": "tir.BufferLoad", 
+      "attrs": {
+        "buffer": "33", 
+        "dtype": "int32", 
+        "indices": "68", 
+        "predicate": "null", 
+        "span": "null"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [69]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "0"
+      }
+    }, 
+    {
+      "type_key": "tir.Add", 
+      "attrs": {
+        "a": "48", 
+        "b": "71", 
+        "dtype": "int32", 
+        "span": "null"
+      }
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [73]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int32", 
+        "span": "null", 
+        "value": "0"
+      }
+    }, 
+    {
+      "type_key": "ffi.Map"
+    }, 
+    {
+      "type_key": "ir.TupleType", 
+      "attrs": {
+        "fields": "76", 
+        "span": "null"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ffi.Map", 
+      "data": [24, 53, 27, 33]
+    }, 
+    {
+      "type_key": "ir.GlobalVar", 
+      "attrs": {
+        "name_hint": "95", 
+        "span": "null", 
+        "struct_info_": "79"
+      }
+    }, 
+    {
+      "type_key": "relax.FuncStructInfo", 
+      "attrs": {
+        "derive_func": "null", 
+        "params": "80", 
+        "purity": "1", 
+        "ret": "88"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [81]
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "82", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "83", 
+        "values": "86"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "84"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [85]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [87]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "89", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "90", 
+        "values": "93"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "91"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [92]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [94]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "bar"
+    }, 
+    {
+      "type_key": "relax.expr.Function", 
+      "attrs": {
+        "attrs": "97", 
+        "body": "102", 
+        "is_pure": "1", 
+        "params": "99", 
+        "ret_struct_info": "88", 
+        "span": "null", 
+        "struct_info_": "79"
+      }
+    }, 
+    {
+      "type_key": "ir.DictAttrs", 
+      "attrs": {"__dict__": "98"}
+    }, 
+    {
+      "type_key": "ffi.Map", 
+      "keys": [
+        "global_symbol"
+      ], 
+      "data": [95]
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [100]
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "81", 
+        "vid": "101"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "55"}
+    }, 
+    {
+      "type_key": "relax.expr.SeqExpr", 
+      "attrs": {
+        "blocks": "103", 
+        "body": "107", 
+        "span": "null", 
+        "struct_info_": "88"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [104]
+    }, 
+    {
+      "type_key": "relax.expr.BindingBlock", 
+      "attrs": {"bindings": "105"}
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [106]
+    }, 
+    {
+      "type_key": "relax.expr.VarBinding", 
+      "attrs": {
+        "span": "null", 
+        "value": "110", 
+        "var": "107"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "88", 
+        "vid": "108"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "109"}
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "gv"
+    }, 
+    {
+      "type_key": "relax.expr.Call", 
+      "attrs": {
+        "args": "112", 
+        "attrs": "null", 
+        "op": "111", 
+        "sinfo_args": "117", 
+        "span": "null", 
+        "struct_info_": "88"
+      }
+    }, 
+    {
+      "type_key": "ir.Op", 
+      "repr_str": "relax.call_tir"
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [3, 113]
+    }, 
+    {
+      "type_key": "relax.expr.Tuple", 
+      "attrs": {
+        "fields": "116", 
+        "span": "null", 
+        "struct_info_": "114"
+      }
+    }, 
+    {
+      "type_key": "relax.TupleStructInfo", 
+      "attrs": {"fields": "115"}
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [81]
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [100]
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [88]
+    }, 
+    {
+      "type_key": "ir.GlobalVar", 
+      "attrs": {
+        "name_hint": "139", 
+        "span": "null", 
+        "struct_info_": "119"
+      }
+    }, 
+    {
+      "type_key": "relax.FuncStructInfo", 
+      "attrs": {
+        "derive_func": "null", 
+        "params": "120", 
+        "purity": "1", 
+        "ret": "135"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [121, 128]
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "122", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "123", 
+        "values": "126"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "124"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [125]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [127]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "129", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "130", 
+        "values": "133"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "131"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [132]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [134]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "136", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "137", 
+        "values": "138"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "138"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [132]
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "foo"
+    }, 
+    {
+      "type_key": "relax.expr.Function", 
+      "attrs": {
+        "attrs": "141", 
+        "body": "149", 
+        "is_pure": "1", 
+        "params": "143", 
+        "ret_struct_info": "135", 
+        "span": "null", 
+        "struct_info_": "119"
+      }
+    }, 
+    {
+      "type_key": "ir.DictAttrs", 
+      "attrs": {"__dict__": "142"}
+    }, 
+    {
+      "type_key": "ffi.Map", 
+      "keys": [
+        "global_symbol"
+      ], 
+      "data": [139]
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [144, 146]
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "121", 
+        "vid": "145"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "55"}
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "128", 
+        "vid": "147"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "148"}
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "param"
+    }, 
+    {
+      "type_key": "relax.expr.SeqExpr", 
+      "attrs": {
+        "blocks": "150", 
+        "body": "161", 
+        "span": "null", 
+        "struct_info_": "135"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [151]
+    }, 
+    {
+      "type_key": "relax.expr.BindingBlock", 
+      "attrs": {"bindings": "152"}
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [153, 160]
+    }, 
+    {
+      "type_key": "relax.expr.VarBinding", 
+      "attrs": {
+        "span": "null", 
+        "value": "157", 
+        "var": "154"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "88", 
+        "vid": "155"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "156"}
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "fact"
+    }, 
+    {
+      "type_key": "relax.expr.Call", 
+      "attrs": {
+        "args": "158", 
+        "attrs": "null", 
+        "op": "78", 
+        "sinfo_args": "159", 
+        "span": "null", 
+        "struct_info_": "88"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [144]
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "relax.expr.VarBinding", 
+      "attrs": {
+        "span": "null", 
+        "value": "164", 
+        "var": "161"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "135", 
+        "vid": "162"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "163"}
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "gv1"
+    }, 
+    {
+      "type_key": "relax.expr.Call", 
+      "attrs": {
+        "args": "166", 
+        "attrs": "null", 
+        "op": "165", 
+        "sinfo_args": "167", 
+        "span": "null", 
+        "struct_info_": "135"
+      }
+    }, 
+    {
+      "type_key": "ir.Op", 
+      "repr_str": "relax.add"
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [154, 146]
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ir.GlobalVar", 
+      "attrs": {
+        "name_hint": "189", 
+        "span": "null", 
+        "struct_info_": "169"
+      }
+    }, 
+    {
+      "type_key": "relax.FuncStructInfo", 
+      "attrs": {
+        "derive_func": "null", 
+        "params": "170", 
+        "purity": "1", 
+        "ret": "185"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [171, 178]
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "172", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "173", 
+        "values": "176"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "174"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [175]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [177]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "179", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "180", 
+        "values": "183"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "181"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [182]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [184]
+    }, 
+    {
+      "type_key": "ir.IntImm", 
+      "attrs": {
+        "dtype": "int64", 
+        "span": "null", 
+        "value": "1"
+      }
+    }, 
+    {
+      "type_key": "relax.TensorStructInfo", 
+      "attrs": {
+        "dtype": "int32", 
+        "ndim": "1", 
+        "shape": "186", 
+        "vdevice": "null"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.ShapeExpr", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "187", 
+        "values": "188"
+      }
+    }, 
+    {
+      "type_key": "relax.ShapeStructInfo", 
+      "attrs": {
+        "ndim": "1", 
+        "values": "188"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [182]
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "main"
+    }, 
+    {
+      "type_key": "relax.expr.Function", 
+      "attrs": {
+        "attrs": "191", 
+        "body": "198", 
+        "is_pure": "1", 
+        "params": "193", 
+        "ret_struct_info": "185", 
+        "span": "null", 
+        "struct_info_": "169"
+      }
+    }, 
+    {
+      "type_key": "ir.DictAttrs", 
+      "attrs": {"__dict__": "192"}
+    }, 
+    {
+      "type_key": "ffi.Map", 
+      "keys": [
+        "global_symbol"
+      ], 
+      "data": [189]
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [194, 196]
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "171", 
+        "vid": "195"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "55"}
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "178", 
+        "vid": "197"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "148"}
+    }, 
+    {
+      "type_key": "relax.expr.SeqExpr", 
+      "attrs": {
+        "blocks": "199", 
+        "body": "210", 
+        "span": "null", 
+        "struct_info_": "185"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [200]
+    }, 
+    {
+      "type_key": "relax.expr.BindingBlock", 
+      "attrs": {"bindings": "201"}
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [202, 209]
+    }, 
+    {
+      "type_key": "relax.expr.VarBinding", 
+      "attrs": {
+        "span": "null", 
+        "value": "206", 
+        "var": "203"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "135", 
+        "vid": "204"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "205"}
+    }, 
+    {
+      "type_key": "ffi.String", 
+      "repr_str": "tmp"
+    }, 
+    {
+      "type_key": "relax.expr.Call", 
+      "attrs": {
+        "args": "207", 
+        "attrs": "null", 
+        "op": "118", 
+        "sinfo_args": "208", 
+        "span": "null", 
+        "struct_info_": "135"
+      }
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [194, 196]
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "relax.expr.VarBinding", 
+      "attrs": {
+        "span": "null", 
+        "value": "212", 
+        "var": "210"
+      }
+    }, 
+    {
+      "type_key": "relax.expr.Var", 
+      "attrs": {
+        "span": "null", 
+        "struct_info_": "185", 
+        "vid": "211"
+      }
+    }, 
+    {
+      "type_key": "relax.Id", 
+      "attrs": {"name_hint": "163"}
+    }, 
+    {
+      "type_key": "relax.expr.Call", 
+      "attrs": {
+        "args": "214", 
+        "attrs": "null", 
+        "op": "213", 
+        "sinfo_args": "215", 
+        "span": "null", 
+        "struct_info_": "185"
+      }
+    }, 
+    {
+      "type_key": "ir.Op", 
+      "repr_str": "relax.multiply"
+    }, 
+    {
+      "type_key": "ffi.Array", 
+      "data": [203, 196]
+    }, 
+    {
+      "type_key": "ffi.Array"
+    }, 
+    {
+      "type_key": "ffi.Map", 
+      "keys": [
+        "factorial_impl", 
+        "bar", 
+        "foo", 
+        "main"
+      ], 
+      "data": [3, 78, 118, 168]
+    }, 
+    {
+      "type_key": "ir.SourceMap", 
+      "attrs": {"source_map": "218"}
+    }, 
+    {
+      "type_key": "ffi.Map"
+    }, 
+    {
+      "type_key": "ir.DictAttrs", 
+      "attrs": {"__dict__": "220"}
+    }, 
+    {
+      "type_key": "ffi.Map"
+    }, 
+    {
+      "type_key": "ffi.Map"
+    }
+  ], 
+  "b64ndarrays": [], 
+  "attrs": {"tvm_version": "0.21.dev0"}
+}

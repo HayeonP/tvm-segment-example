@@ -1,0 +1,259 @@
+0000000000000674 T add
+                 w __cxa_finalize
+00000000000018b4 W __extendhfsf2
+0000000000000d3c T factorial_impl
+                 w __gmon_start__
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+0000000000000fe8 T multiply
+0000000000001778 W __truncsfhf2
+0000000000016020 V __TVMFFIErrorSetRaisedFromCStr
+0000000000004121 R __tvm_ffi_library_bin
+otFh
+__gmon_start__
+_ITM_deregisterTMCloneTable
+_ITM_registerTMCloneTable
+__cxa_finalize
+__TVMFFIErrorSetRaisedFromCStr
+factorial_impl
+multiply
+__truncsfhf2
+__extendhfsf2
+__tvm_ffi_library_bin
+`b@9@
+T* @
+q	Q+
+T+Q@9
+5+U@9
+T+-@y
+KQ@9
+5KU@9
+TK-@y
+Q@9j!
+U@9_
+-@y_
+T	Q@9)
+5	U@9?
+T	-@y?
+T* @
+q	Q+
+T+Q@9
+5+U@9
+T+-@y
+KQ@9
+5KU@9
+TK-@y
+Q@9j!
+U@9_
+-@y_
+k	}	
+Iq@Q
+SI!)
+RI5	
+	Rj]
+Assert fail: num_args == 3, add: num_args should be 3
+RuntimeError
+Assert fail: not T.isnullptr(args), add: args pointer is NULL
+Assert fail: var_fact_type_index == 0 or var_fact_type_index == 4 or var_fact_type_index == 7 or var_fact_type_index >= 64, add: Expect arg[0] to be pointer
+Assert fail: var_param_type_index == 0 or var_param_type_index == 4 or var_param_type_index == 7 or var_param_type_index >= 64, add: Expect arg[1] to be pointer
+Assert fail: var_T_add_type_index == 0 or var_T_add_type_index == 4 or var_T_add_type_index == 7 or var_T_add_type_index >= 64, add: Expect arg[2] to be pointer
+Assert fail: not T.isnullptr(var_fact), add.var_fact is expected to have non-NULL DLTensor* pointer
+Assert fail: 1 == T.tvm_struct_get(var_fact, 0, 4, "int32"), add.var_fact.ndim is expected to equal 1
+Assert fail: not T.isnullptr(var_param), add.var_param is expected to have non-NULL DLTensor* pointer
+Assert fail: 1 == T.tvm_struct_get(var_param, 0, 4, "int32"), add.var_param.ndim is expected to equal 1
+Assert fail: not T.isnullptr(var_T_add), add.var_T_add is expected to have non-NULL DLTensor* pointer
+Assert fail: 1 == T.tvm_struct_get(var_T_add, 0, 4, "int32"), add.var_T_add.ndim is expected to equal 1
+Assert fail: T.tvm_struct_get(var_fact, 0, 5, "uint8") == T.uint8(0) and T.tvm_struct_get(var_fact, 0, 6, "uint8") == T.uint8(32) and T.tvm_struct_get(var_fact, 0, 7, "uint16") == T.uint16(1), add.var_fact.dtype is expected to be int32
+Assert fail: add_var_fact_shape[0] == T.int64(1), Argument add.var_fact.shape[0] has an unsatisfied constraint: T.int64(1) == add_var_fact_shape[0]
+Assert fail: T.uint64(0) == T.tvm_struct_get(var_fact, 0, 8, "uint64"), Argument add.var_fact.byte_offset has an unsatisfied constraint: T.uint64(0) == T.tvm_struct_get(var_fact, 0, 8, "uint64")
+Assert fail: T.tvm_struct_get(var_fact, 0, 10, "int32") == 1, Argument add.var_fact.device_type has an unsatisfied constraint: 1 == T.tvm_struct_get(var_fact, 0, 10, "int32")
+Assert fail: not T.isnullptr(fact), add.var_fact is expected to have non-NULL data pointer
+Assert fail: T.tvm_struct_get(var_param, 0, 5, "uint8") == T.uint8(0) and T.tvm_struct_get(var_param, 0, 6, "uint8") == T.uint8(32) and T.tvm_struct_get(var_param, 0, 7, "uint16") == T.uint16(1), add.var_param.dtype is expected to be int32
+Assert fail: add_var_param_shape[0] == T.int64(1), Argument add.var_param.shape[0] has an unsatisfied constraint: T.int64(1) == add_var_param_shape[0]
+Assert fail: T.uint64(0) == T.tvm_struct_get(var_param, 0, 8, "uint64"), Argument add.var_param.byte_offset has an unsatisfied constraint: T.uint64(0) == T.tvm_struct_get(var_param, 0, 8, "uint64")
+Assert fail: T.tvm_struct_get(var_param, 0, 10, "int32") == 1, Argument add.var_param.device_type has an unsatisfied constraint: 1 == T.tvm_struct_get(var_param, 0, 10, "int32")
+Assert fail: dev_id == T.tvm_struct_get(var_param, 0, 9, "int32"), Argument add.var_param.device_id has an unsatisfied constraint: dev_id == T.tvm_struct_get(var_param, 0, 9, "int32")
+Assert fail: not T.isnullptr(param), add.var_param is expected to have non-NULL data pointer
+Assert fail: T.tvm_struct_get(var_T_add, 0, 5, "uint8") == T.uint8(0) and T.tvm_struct_get(var_T_add, 0, 6, "uint8") == T.uint8(32) and T.tvm_struct_get(var_T_add, 0, 7, "uint16") == T.uint16(1), add.var_T_add.dtype is expected to be int32
+Assert fail: add_var_T_add_shape[0] == T.int64(1), Argument add.var_T_add.shape[0] has an unsatisfied constraint: T.int64(1) == add_var_T_add_shape[0]
+Assert fail: T.uint64(0) == T.tvm_struct_get(var_T_add, 0, 8, "uint64"), Argument add.var_T_add.byte_offset has an unsatisfied constraint: T.uint64(0) == T.tvm_struct_get(var_T_add, 0, 8, "uint64")
+Assert fail: T.tvm_struct_get(var_T_add, 0, 10, "int32") == 1, Argument add.var_T_add.device_type has an unsatisfied constraint: 1 == T.tvm_struct_get(var_T_add, 0, 10, "int32")
+Assert fail: dev_id == T.tvm_struct_get(var_T_add, 0, 9, "int32"), Argument add.var_T_add.device_id has an unsatisfied constraint: dev_id == T.tvm_struct_get(var_T_add, 0, 9, "int32")
+Assert fail: not T.isnullptr(T_add), add.var_T_add is expected to have non-NULL data pointer
+Assert fail: num_args == 2, factorial_impl: num_args should be 2
+Assert fail: not T.isnullptr(args), factorial_impl: args pointer is NULL
+Assert fail: n_type_index == 1 or n_type_index == 2, factorial_impl: Expect arg[0] to be int
+Assert fail: result_type_index == 0 or result_type_index == 4 or result_type_index == 7 or result_type_index >= 64, factorial_impl: Expect arg[1] to be pointer
+Assert fail: not T.isnullptr(result), factorial_impl.result is expected to have non-NULL DLTensor* pointer
+Assert fail: 1 == T.tvm_struct_get(result, 0, 4, "int32"), factorial_impl.result.ndim is expected to equal 1
+Assert fail: T.tvm_struct_get(result, 0, 5, "uint8") == T.uint8(0) and T.tvm_struct_get(result, 0, 6, "uint8") == T.uint8(32) and T.tvm_struct_get(result, 0, 7, "uint16") == T.uint16(1), factorial_impl.result.dtype is expected to be int32
+Assert fail: T.Cast("int32", factorial_impl_result_shape[0]) == 1, Argument factorial_impl.result.shape[0] has an unsatisfied constraint: 1 == T.Cast("int32", factorial_impl_result_shape[0])
+Assert fail: T.uint64(0) == T.tvm_struct_get(result, 0, 8, "uint64"), Argument factorial_impl.result.byte_offset has an unsatisfied constraint: T.uint64(0) == T.tvm_struct_get(result, 0, 8, "uint64")
+Assert fail: T.tvm_struct_get(result, 0, 10, "int32") == 1, Argument factorial_impl.result.device_type has an unsatisfied constraint: 1 == T.tvm_struct_get(result, 0, 10, "int32")
+Assert fail: not T.isnullptr(result_buf), factorial_impl.result is expected to have non-NULL data pointer
+Assert fail: num_args == 3, multiply: num_args should be 3
+Assert fail: not T.isnullptr(args), multiply: args pointer is NULL
+Assert fail: var_tmp_type_index == 0 or var_tmp_type_index == 4 or var_tmp_type_index == 7 or var_tmp_type_index >= 64, multiply: Expect arg[0] to be pointer
+Assert fail: var_param_type_index == 0 or var_param_type_index == 4 or var_param_type_index == 7 or var_param_type_index >= 64, multiply: Expect arg[1] to be pointer
+Assert fail: var_T_multiply_type_index == 0 or var_T_multiply_type_index == 4 or var_T_multiply_type_index == 7 or var_T_multiply_type_index >= 64, multiply: Expect arg[2] to be pointer
+Assert fail: not T.isnullptr(var_tmp), multiply.var_tmp is expected to have non-NULL DLTensor* pointer
+Assert fail: 1 == T.tvm_struct_get(var_tmp, 0, 4, "int32"), multiply.var_tmp.ndim is expected to equal 1
+Assert fail: not T.isnullptr(var_param), multiply.var_param is expected to have non-NULL DLTensor* pointer
+Assert fail: 1 == T.tvm_struct_get(var_param, 0, 4, "int32"), multiply.var_param.ndim is expected to equal 1
+Assert fail: not T.isnullptr(var_T_multiply), multiply.var_T_multiply is expected to have non-NULL DLTensor* pointer
+Assert fail: 1 == T.tvm_struct_get(var_T_multiply, 0, 4, "int32"), multiply.var_T_multiply.ndim is expected to equal 1
+Assert fail: T.tvm_struct_get(var_tmp, 0, 5, "uint8") == T.uint8(0) and T.tvm_struct_get(var_tmp, 0, 6, "uint8") == T.uint8(32) and T.tvm_struct_get(var_tmp, 0, 7, "uint16") == T.uint16(1), multiply.var_tmp.dtype is expected to be int32
+Assert fail: multiply_var_tmp_shape[0] == T.int64(1), Argument multiply.var_tmp.shape[0] has an unsatisfied constraint: T.int64(1) == multiply_var_tmp_shape[0]
+Assert fail: T.uint64(0) == T.tvm_struct_get(var_tmp, 0, 8, "uint64"), Argument multiply.var_tmp.byte_offset has an unsatisfied constraint: T.uint64(0) == T.tvm_struct_get(var_tmp, 0, 8, "uint64")
+Assert fail: T.tvm_struct_get(var_tmp, 0, 10, "int32") == 1, Argument multiply.var_tmp.device_type has an unsatisfied constraint: 1 == T.tvm_struct_get(var_tmp, 0, 10, "int32")
+Assert fail: not T.isnullptr(tmp), multiply.var_tmp is expected to have non-NULL data pointer
+Assert fail: T.tvm_struct_get(var_param, 0, 5, "uint8") == T.uint8(0) and T.tvm_struct_get(var_param, 0, 6, "uint8") == T.uint8(32) and T.tvm_struct_get(var_param, 0, 7, "uint16") == T.uint16(1), multiply.var_param.dtype is expected to be int32
+Assert fail: multiply_var_param_shape[0] == T.int64(1), Argument multiply.var_param.shape[0] has an unsatisfied constraint: T.int64(1) == multiply_var_param_shape[0]
+Assert fail: T.uint64(0) == T.tvm_struct_get(var_param, 0, 8, "uint64"), Argument multiply.var_param.byte_offset has an unsatisfied constraint: T.uint64(0) == T.tvm_struct_get(var_param, 0, 8, "uint64")
+Assert fail: T.tvm_struct_get(var_param, 0, 10, "int32") == 1, Argument multiply.var_param.device_type has an unsatisfied constraint: 1 == T.tvm_struct_get(var_param, 0, 10, "int32")
+Assert fail: dev_id == T.tvm_struct_get(var_param, 0, 9, "int32"), Argument multiply.var_param.device_id has an unsatisfied constraint: dev_id == T.tvm_struct_get(var_param, 0, 9, "int32")
+Assert fail: not T.isnullptr(param), multiply.var_param is expected to have non-NULL data pointer
+Assert fail: T.tvm_struct_get(var_T_multiply, 0, 5, "uint8") == T.uint8(0) and T.tvm_struct_get(var_T_multiply, 0, 6, "uint8") == T.uint8(32) and T.tvm_struct_get(var_T_multiply, 0, 7, "uint16") == T.uint16(1), multiply.var_T_multiply.dtype is expected to be int32
+Assert fail: multiply_var_T_multiply_shape[0] == T.int64(1), Argument multiply.var_T_multiply.shape[0] has an unsatisfied constraint: T.int64(1) == multiply_var_T_multiply_shape[0]
+Assert fail: T.uint64(0) == T.tvm_struct_get(var_T_multiply, 0, 8, "uint64"), Argument multiply.var_T_multiply.byte_offset has an unsatisfied constraint: T.uint64(0) == T.tvm_struct_get(var_T_multiply, 0, 8, "uint64")
+Assert fail: T.tvm_struct_get(var_T_multiply, 0, 10, "int32") == 1, Argument multiply.var_T_multiply.device_type has an unsatisfied constraint: 1 == T.tvm_struct_get(var_T_multiply, 0, 10, "int32")
+Assert fail: dev_id == T.tvm_struct_get(var_T_multiply, 0, 9, "int32"), Argument multiply.var_T_multiply.device_id has an unsatisfied constraint: dev_id == T.tvm_struct_get(var_T_multiply, 0, 9, "int32")
+Assert fail: not T.isnullptr(T_multiply), multiply.var_T_multiply is expected to have non-NULL data pointer
+relax.VMExecutable
+0.14
+vm.builtin.check_prim_value_info
+vm.builtin.alloc_storage
+vm.builtin.alloc_tensor
+vm.builtin.null_value
+factorial_impl
+param
+vm.builtin.check_tensor_info
+vm.builtin.match_shape
+main
+param
+multiply
+ErrorContext(fn=bar, loc=param[0], param=n, annotation=R.Prim("int32")) G
+globalG
+ErrorContext(fn=foo, loc=param[0], param=n, annotation=R.Prim("int32")) 
+ErrorContext(fn=foo, loc=param[1], param=param, annotation=R.Tensor((1,), dtype="int32")) 
+ErrorContext(fn=main, loc=param[0], param=n, annotation=R.Prim("int32")) 
+ErrorContext(fn=main, loc=param[1], param=param, annotation=R.Tensor((1,), dtype="int32")) 
+_lib
+_import_tree
+GCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+multiply
+factorial_impl_compute_
+add_compute_
+factorial_impl
+multiply_compute_
+IRModule.CodeGenLLVM
+IRModule.CodeGenLLVM
+int32
+factorial_impl
+add_compute_
+factorial_impl_compute_
+multiply_compute_
+self_handle
+num_args
+result
+var_fact.type_index
+var_param.type_index
+var_T_add.type_index
+var_fact
+var_param
+var_T_add
+dev_id
+add.var_fact.shape
+int64
+add.var_param.shape
+add.var_T_add.shape
+n.type_index
+result.type_index
+factorial_impl.result.shape
+result_buf
+var_tmp.type_index
+var_T_multiply.type_index
+var_tmp
+var_T_multiply
+multiply.var_tmp.shape
+multiply.var_param.shape
+multiply.var_T_multiply.shape
+int32
+int64
+crti.o
+call_weak_fn
+crtn.o
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+TVMMod
+$x.0
+add_compute_
+factorial_impl_compute_
+multiply_compute_
+$d.1
+$x.2
+$d.3
+$d.4
+$d.5
+$d.6
+$d.7
+$d.8
+$d.9
+$d.10
+$d.11
+$d.12
+devc
+$d.0
+__FRAME_END__
+_DYNAMIC
+__TMC_END__
+__dso_handle
+_init
+__GNU_EH_FRAME_HDR
+_fini
+_GLOBAL_OFFSET_TABLE_
+__TVMFFIErrorSetRaisedFromCStr
+__cxa_finalize
+multiply
+factorial_impl
+__tvm_ffi_library_bin
+_ITM_registerTMCloneTable
+_ITM_deregisterTMCloneTable
+__truncsfhf2
+__extendhfsf2
+__gmon_start__
+.symtab
+.strtab
+.shstrtab
+.note.gnu.build-id
+.gnu.hash
+.dynsym
+.dynstr
+.rela.dyn
+.rela.plt
+.init
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.got
+.got.plt
+.data
+.bss
+.comment
+.debug_pubnames
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_loc
+.debug_pubtypes

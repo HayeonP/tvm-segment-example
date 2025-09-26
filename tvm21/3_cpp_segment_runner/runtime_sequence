@@ -3,7 +3,6 @@ pc = 0, execute: vm.builtin.check_tensor_info
 pc = 1, execute: vm.builtin.match_shape
 pc = 2, execute: vm.builtin.alloc_storage
 pc = 3, execute: vm.builtin.alloc_tensor
-@seg
 pc = 4, execute: fused_conv2d_subtract_divide_expand_dims_multiply_expand_dims_add1_strided_slice
 pc = 5, execute: vm.builtin.alloc_storage
 pc = 6, execute: vm.builtin.alloc_tensor
